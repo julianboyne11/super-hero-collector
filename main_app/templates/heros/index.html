@@ -18,7 +18,7 @@
 <section class="card-container">
   {% for hero in heros %}
   <div class="card">
-    <a href="/superheros/{{ hero.id }}">
+    <a href="{% url 'superhero_detail' hero.id %}">
         <div class="card-content">
           <h2 class="card-title">{{ hero.name }}</h2>
             <p> From {{ hero.universe }}</p>
