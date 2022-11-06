@@ -12,19 +12,21 @@
 {% block content %}
 
 <section class="page-header">
-  <h1>Super Hero List</h1>
+  <h1>Superhero List</h1>
 </section>
 
 <section class="card-container">
   {% for hero in heros %}
-    <div class="card">
-      <div class="card-content">
-        <h2 class="card-title">{{ hero.name }}</h2>
-          <p> From {{ hero.universe }}</p>
-        
-        <p><small>{{ hero.description }}</small></p>
+  <div class="card">
+    <a href="/superheros/{{ hero.id }}">
+        <div class="card-content">
+          <h2 class="card-title">{{ hero.name }}</h2>
+            <p> From {{ hero.universe }}</p>
+          
+          <p><small>{{ hero.description }}</small></p>
+        </div>
+      </a>
       </div>
-    </div>
   {% endfor %}
 </section>
 

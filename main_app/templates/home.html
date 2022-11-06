@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"/>
+{% endblock %}
+
+{% block content %}
+
+<section class="logo-container">
+  <img
+    id="main-logo"
+    src="{% static 'images/Superhero.png' %}" 
+    alt="Text reads: Superhero Collector"
+  />
+</section>
+
+{% endblock %}
