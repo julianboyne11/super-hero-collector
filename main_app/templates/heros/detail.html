@@ -16,6 +16,10 @@
     <h2 class="card-title">{{ hero.name }}</h2>
     <p> From {{ hero.universe }}</p>
     <p><small>{{ hero.description }}</small></p>
+    <div class="hero-actions">
+      <a href="{% url 'superhero_update' hero.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'superhero_delete' hero.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 

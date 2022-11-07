@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+# Add UdpateView & DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Superhero
 
 
@@ -20,3 +21,11 @@ def superhero_detail(request, hero_id):
 class HeroCreate(CreateView):
   model = Superhero
   fields = '__all__'
+
+class HeroUpdate(UpdateView):
+  model = Superhero
+  fields = ['universe', 'description']
+
+class HeroDelete(DeleteView):
+  model =Superhero
+  success_url = '/superheros/'
