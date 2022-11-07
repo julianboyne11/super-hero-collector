@@ -21,8 +21,9 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/superheros">All Superheros</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="{% url 'heros_index' %}">All Superheros</a></li>
+        <li><a href="{% url 'superhero_create' %}">Add Superhero</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
       </ul>
     </nav>
   </header>

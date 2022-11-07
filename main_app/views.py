@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Superhero
 
 
@@ -15,3 +16,7 @@ def heros_index(request):
 def superhero_detail(request, hero_id):
   hero = Superhero.objects.get(id=hero_id)
   return render(request, 'heros/detail.html', { 'hero': hero })
+
+class HeroCreate(CreateView):
+  model = Superhero
+  fields = '__all__'
