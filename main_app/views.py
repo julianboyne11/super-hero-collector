@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # Add UdpateView & DeleteView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Superhero
@@ -18,6 +18,14 @@ def heros_index(request):
 def superhero_detail(request, hero_id):
   hero = Superhero.objects.get(id=hero_id)
   return render(request, 'heros/detail.html', { 'hero': hero, 'movie_form': MovieForm()})
+
+def add_movie(request, hero_id):
+  form = MovieForm(request.POST)
+  if form.is_valid():
+    new_movie = form.save(commit=False)
+    new_movie.superhero_id = hero_id
+    new_movie.save()
+  return redirect('superhero_detail', hero_id=hero_id)
 
 class HeroCreate(CreateView):
   model = Superhero

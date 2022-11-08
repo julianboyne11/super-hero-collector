@@ -9,4 +9,5 @@ urlpatterns = [
   path('superheros/create/', views.HeroCreate.as_view(), name='superhero_create'),
   path('supeheros/<int:pk>/update', views.HeroUpdate.as_view(), name='superhero_update'),
   path('supeheros/<int:pk>/delete', views.HeroDelete.as_view(), name='superhero_delete'),
+  path('superheros/<int:hero_id>/add_movie', views.add_movie, name='add_movie')
 ]
