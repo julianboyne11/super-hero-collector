@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 # Add UdpateView & DeleteView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Superhero
+from .models import Superhero, Villan
 from .forms import MovieForm
 
 

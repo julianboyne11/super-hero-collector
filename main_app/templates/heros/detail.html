@@ -49,19 +49,25 @@
       <button type="submit" class="btn submit">Add Movie</button>
     </form>
     <h3>All Movies</h3>
-    <table>
-      <thead>
-        <tr><th>Date</th><th>Title</th></tr>
-      </thead>
-      <tbody>
-        {% for movie in hero.movie_set.all %}
-          <tr>
-            <td>{{movie.date}}</td>
-            <td>{{movie.title}}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    {% if hero.movie_set.all.count %}
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Title</th></tr>
+        </thead>
+        <tbody>
+          {% for movie in hero.movie_set.all %}
+            <tr>
+              <td>{{movie.date}}</td>
+              <td>{{movie.title}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+    <div class="subsection-content">
+      <p>{{hero.name}} has no movies yet</p>
+    </div>
+    {% endif %}
   </section>
 </div>
 
