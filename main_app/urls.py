@@ -11,4 +11,6 @@ urlpatterns = [
   path('supeheros/<int:pk>/delete', views.HeroDelete.as_view(), name='superhero_delete'),
   path('superheros/<int:hero_id>/add_movie', views.add_movie, name='add_movie'),
   path('villans/create/', views.VillanCreate.as_view(), name='villans_create'),
+    path('villans/<int:pk>/', views.VillanDetail.as_view(), name='villans_detail'),
+  path('villans/', views.VillanList.as_view(), name='villans_index'),
 ]

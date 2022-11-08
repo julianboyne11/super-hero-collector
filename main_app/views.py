@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-# Add UdpateView & DeleteView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Superhero, Villan
 from .forms import MovieForm
@@ -38,3 +38,13 @@ class HeroUpdate(UpdateView):
 class HeroDelete(DeleteView):
   model =Superhero
   success_url = '/superheros/'
+
+class VillanCreate(CreateView):
+  model = Villan
+  fields = '__all__'
+
+class VillanList(ListView):
+  model = Villan
+
+class VillanDetail(DetailView):
+  model = Villan

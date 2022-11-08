@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/heros/heros-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Villan List</h1>
+</section>
+
+<section class="card-container">
+  {% for villan in villan_list %}
+  <div class="card">
+    <a href="{% url 'villans_detail' villan.id %}">
+        <div class="card-content">
+          <h2 class="card-title">{{ villan.name }}</h2>
+          <p><small>{{ villan.description }}</small></p>
+        </div>
+      </a>
+      </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
