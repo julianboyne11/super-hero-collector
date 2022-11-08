@@ -48,9 +48,20 @@ body {
 
 header {
   width: 100%;
-  background: var(--nav-bg-ff); /* rgba(104, 197, 248, .9) */
+  background: var(--nav-bg-ff); 
   border-bottom: var(--borders);
 }
+
+header h1 {
+  margin: 0;
+  max-width: 300px;
+}
+
+header a {
+  height: 100%;
+  width: 200px;
+}
+
 
 
 nav {
