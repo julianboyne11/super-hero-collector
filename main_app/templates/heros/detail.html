@@ -22,5 +22,25 @@
     </div>
   </div>
 </section>
+<div class="movie-villan-container">
+  <section class="movies">
+    <div class="subsection-title">
+      <h2>Movies</h2>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Title</th></tr>
+      </thead>
+      <tbody>
+        {% for movie in hero.movie_set.all %}
+          <tr>
+            <td>{{movie.date}}</td>
+            <td>{{movie.title}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 
 {% endblock %}

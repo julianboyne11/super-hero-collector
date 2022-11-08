@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import Superhero
+from .models import Superhero, Movie
 
 admin.site.register(Superhero)
 
-# Register your models here.
+admin.site.register(Movie)

@@ -12,3 +12,11 @@ class Superhero(models.Model):
   def get_absolute_url(self):
       return reverse("superhero_detail", kwargs={"hero_id": self.id})
   
+class Movie(models.Model):
+  title = models.CharField(max_length=100)
+  date = models.DateField('Release date')
+
+  superhero = models.ForeignKey(Superhero, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return f"{self.title} released {self.date}"
