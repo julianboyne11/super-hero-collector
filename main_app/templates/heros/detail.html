@@ -69,6 +69,45 @@
     </div>
     {% endif %}
   </section>
+  <section class="villans">
+    <div class="subsection-title">
+      <h2>Villans</h2>
+    </div>
+    <h3>All of {{ hero.name }}'s Archenemy</h3>
+    <div class="subsection-content">
+      {% if hero.villans.count %}
+        {% for villan in hero.villans.all %}
+          <div class="villan-container">
+            <a href="{% url 'villans_detail' villan.id %}">
+              <p>{{ villan.name }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-villans">{{hero.name}} doesn't have Archenemy yet</p>
+      {% endif %}
+    </div>
+    <h3>Other posible villans</h3>
+    <div class="subsection-content">
+      {% if villans.count  %}
+        {% for villan in villans.all %}
+          <div class='villan-container'>
+            <a href="{% url 'villans_detail' villan.id %}">
+              <p>{{villan.name}}</p>
+            </a>
+            <form action="{% url 'assoc_villan' hero.id villan.id %}" method='post'>
+              {% csrf_token %}
+              <button  type='submit' class='btn submit'>Declare enemy</button>
+            </form>
+          </div>
+        {% endfor %}
+        {% else %}
+        <p class='all-villans'>
+          {{hero.name}} has all the enemies to fight against 🦸‍♂️
+        </p>
+        {% endif %}
+      </div>
+  </section>
 </div>
 
 {% endblock %}

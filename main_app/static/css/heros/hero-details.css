@@ -40,36 +40,30 @@ hr {
   margin: 0 8px;
 }
 
-/* .toy-container {
+.villan-container {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.color-block {
-  opacity: 0.8;
-  height: 25px;
-  width: 25px;
-  margin-right: 10px;
-} */
-
-/* .unfed,
-.fed,
-.no-toys,
-.all-toys {
+.no-villans,
+.all-villans {
   margin: 0;
   font-weight: bold;
-} */ */
+} 
 
-.unfed,
-.no-toys {
+.villans h3 {
+  margin: 20px 0 10px;
+  font-size: var(--font-l);
+}
+
+.no-villans {
   color: var(--danger);
 }
 
-.fed,
-.all-toys {
+.all-villans {
   color: var(--submit);
-} */
+} 
 
 .hero-details h1 {
   font-size: var(--font-xxl);
@@ -87,6 +81,8 @@ hr {
   margin: 20px 0 10px;
   font-size: var(--font-l);
 }
+
+
 
 .hero-details p {
   font-size: var(--font-reg);
@@ -115,12 +111,12 @@ hr {
   margin-left: 16px;
 }
 
-.movies h2 {
+.movies .villans h2 {
   font-size: 3.2rem;
   margin: 0;
 }
 
-.movies h3 {
+.movies .villans h3 {
   font-size: var(--font-xl);
   margin: 10px 0;
 }
@@ -147,7 +143,7 @@ hr {
 .movies td {
   padding: 8px 5px;
   font-size: var(--font-reg);
-} */
+} 
 
 .movies th {
   font-size: var(--font-l);
@@ -159,19 +155,19 @@ hr {
   background-color: #f3f3fd;
 }
 
-/* .toy-container p {
+.villan-container p {
   margin: 12px 0;
 }
 
-.toy-container a {
+.villan-container a {
   text-decoration: none;
   color: #111;
 }
 
-.toy-container .btn {
+.villan-container .btn {
   padding: 3px 10px;
   margin-left: 10px;
-} */
+}
 
 #file-input {
   overflow: hidden;

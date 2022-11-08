@@ -17,7 +17,8 @@ def heros_index(request):
 
 def superhero_detail(request, hero_id):
   hero = Superhero.objects.get(id=hero_id)
-  return render(request, 'heros/detail.html', { 'hero': hero, 'movie_form': MovieForm()})
+  villans_hero_doesnt_have = Villan.objects.exclude(id__in = hero.villans.all().values_list('id'))
+  return render(request, 'heros/detail.html', { 'hero': hero, 'movie_form': MovieForm(), 'villans': villans_hero_doesnt_have})
 
 def add_movie(request, hero_id):
   form = MovieForm(request.POST)
@@ -27,9 +28,14 @@ def add_movie(request, hero_id):
     new_movie.save()
   return redirect('superhero_detail', hero_id=hero_id)
 
+def assoc_villan(request, hero_id, villan_id):
+  # Note that you can pass a toy's id instead of the whole object
+  Superhero.objects.get(id=hero_id).villans.add(villan_id)
+  return redirect('superhero_detail', hero_id=hero_id)
+
 class HeroCreate(CreateView):
   model = Superhero
-  fields = '__all__'
+  fields = ['name', 'universe', 'description']
 
 class HeroUpdate(UpdateView):
   model = Superhero
