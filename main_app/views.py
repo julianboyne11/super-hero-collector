@@ -48,3 +48,11 @@ class VillanList(ListView):
 
 class VillanDetail(DetailView):
   model = Villan
+
+class VillanUpdate(UpdateView):
+  model = Villan
+  fields = ['name', 'description']
+
+class VillanDelete(DeleteView):
+  model = Villan
+  success_url = '/villans/'

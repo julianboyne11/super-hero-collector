@@ -13,4 +13,6 @@ urlpatterns = [
   path('villans/create/', views.VillanCreate.as_view(), name='villans_create'),
     path('villans/<int:pk>/', views.VillanDetail.as_view(), name='villans_detail'),
   path('villans/', views.VillanList.as_view(), name='villans_index'),
+    path('villans/<int:pk>/update/', views.VillanUpdate.as_view(), name='villans_update'),
+  path('villans/<int:pk>/delete/', views.VillanDelete.as_view(), name='villans_delete'),
 ]

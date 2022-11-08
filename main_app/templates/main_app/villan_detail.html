@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/heros/hero-details.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-container">
+  <div class="hero-details">
+    <h2 class="card-title">{{ villan.name }}</h2>
+    <p><small>{{ villan.description }}</small></p>
+    <div class="hero-actions">
+      <a href="{% url 'villans_update' villan.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'villans_delete' villan.id %}" class="btn danger">Delete</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
