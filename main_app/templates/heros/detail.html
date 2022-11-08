@@ -3,10 +3,20 @@
 
 {% block head %}
 <link 
+  href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" 
+  rel="stylesheet" 
+/>
+<link rel="stylesheet" href="{% static 'css/mcdp.css' %}">
+<script 
+  src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
+>
+</script>
+<link 
   rel="stylesheet" 
   type="text/css" 
   href="{% static 'css/heros/hero-details.css' %}"
 />
+<script defer src="{% static 'js/hero-detail.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -27,6 +37,17 @@
     <div class="subsection-title">
       <h2>Movies</h2>
     </div>
+    <hr />
+    <h3>Add a Movie</h3>
+    <form
+      method="post" 
+      class="subsection-content"
+    >
+      {% csrf_token %}
+      {{ movie_form.as_p }}
+      <button type="submit" class="btn submit">Add Movie</button>
+    </form>
+    <h3>All Movies</h3>
     <table>
       <thead>
         <tr><th>Date</th><th>Title</th></tr>

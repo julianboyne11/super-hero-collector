@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+hr {
+  width: 100%;
+}
+
 .usr-img {
   width: 100%;
   border-radius: var(--card-border-radius);

@@ -2,6 +2,7 @@ from django.shortcuts import render
 # Add UdpateView & DeleteView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Superhero
+from .forms import MovieForm
 
 
 def home(request):
@@ -16,7 +17,7 @@ def heros_index(request):
 
 def superhero_detail(request, hero_id):
   hero = Superhero.objects.get(id=hero_id)
-  return render(request, 'heros/detail.html', { 'hero': hero })
+  return render(request, 'heros/detail.html', { 'hero': hero, 'movie_form': MovieForm()})
 
 class HeroCreate(CreateView):
   model = Superhero
