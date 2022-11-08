@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.views import LoginView
 from .models import Superhero, Villan
 from .forms import MovieForm
 
@@ -62,3 +63,6 @@ class VillanUpdate(UpdateView):
 class VillanDelete(DeleteView):
   model = Villan
   success_url = '/villans/'
+
+class Home(LoginView):
+  template_name = 'home.html'
