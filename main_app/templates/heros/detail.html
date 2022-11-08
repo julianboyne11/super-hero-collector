@@ -26,10 +26,12 @@
     <h2 class="card-title">{{ hero.name }}</h2>
     <p> From {{ hero.universe }}</p>
     <p><small>{{ hero.description }}</small></p>
+    {% if perms.hero.user %}
     <div class="hero-actions">
       <a href="{% url 'superhero_update' hero.id %}" class="btn warn">Edit</a>
       <a href="{% url 'superhero_delete' hero.id %}" class="btn danger">Delete</a>
     </div>
+    {% endif %}
   </div>
 </section>
 <div class="movie-villan-container">
@@ -38,6 +40,7 @@
       <h2>Movies</h2>
     </div>
     <hr />
+    {% if perms.hero.user %}
     <h3>Add a Movie</h3>
     <form
       action="{% url 'add_movie' hero.id %}"
@@ -48,6 +51,7 @@
       {{ movie_form.as_p }}
       <button type="submit" class="btn submit">Add Movie</button>
     </form>
+    {% endif %}
     <h3>All Movies</h3>
     {% if hero.movie_set.all.count %}
       <table>
@@ -87,6 +91,7 @@
         <p class="no-villans">{{hero.name}} doesn't have Archenemy yet</p>
       {% endif %}
     </div>
+    {% if perms.hero.user %}
     <h3>Other posible villans</h3>
     <div class="subsection-content">
       {% if villans.count  %}
@@ -100,12 +105,13 @@
               <button  type='submit' class='btn submit'>Declare enemy</button>
             </form>
           </div>
-        {% endfor %}
-        {% else %}
-        <p class='all-villans'>
-          {{hero.name}} has all the enemies to fight against 🦸‍♂️
-        </p>
-        {% endif %}
+          {% endfor %}
+          {% else %}
+          <p class='all-villans'>
+            {{hero.name}} has all the enemies to fight against 🦸‍♂️
+          </p>
+          {% endif %}
+          {% endif %}
       </div>
   </section>
 </div>
