@@ -9,6 +9,11 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import environ
+env = environ.Env()
+environ.Env.read_env()
+env('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 
 from pathlib import Path
 import os
@@ -134,3 +139,10 @@ LOGOUT_REDIRECT_URL = 'home'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_heroku
+django_heroku.settings(locals())
+
+DEBUG_PROPAGATE_EXCEPTIONS = True
+
+DEBUG = env('DEBUG') == 'True' 
